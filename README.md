@@ -10,3 +10,10 @@ In order to redeem myself from these past sins, I'm working on this project in o
 - Write better commits
 - Write modular code
 - Write good documentation
+
+# Project Specs
+- Let users create messages and post them on a home page (like Twitter?)
+- User profiles
+- User authentication
+- Web interface
+- Write code in a way that allows devs to add more features (i.e. chat, Mobile interface, etc.)
