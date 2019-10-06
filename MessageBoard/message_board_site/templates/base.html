@@ -1,20 +1,25 @@
-
-
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+    {% load static %}
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-
+    <meta charset="utf-8">
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/header.css' %}">
 </head>
 
 <body>
     <header>
-        <h1>
-            Header goes here
-        </h1>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">Login</a>
+            <a href="#contact">Sign up</a>
+        </div>
     </header>
 
     {% block content %}
@@ -27,4 +32,5 @@
         </h2>
     </footer>
 </body>
+
 </html>

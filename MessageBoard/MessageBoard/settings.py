@@ -126,3 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+print(os.path.join(BASE_DIR, '..', 'message_board_site', 'static'))
+STATICFILES_DIRS = [
+    'MessageBoard/message_board_site/static'
+]
