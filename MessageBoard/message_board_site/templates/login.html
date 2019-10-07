@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/login.css' %}">
+
+<div class='login_input_div'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+        </div>
+        <input id="login_email_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
+        </div>
+        <input id="login_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <button id="login_submission_button" type="button" class="btn btn-success">Submit</button>
+    </div>
+</div>
+
+<script>
+
+var email_input = $("#login_email_input");
+var password_input = $("#login_password_input");
+var submission_button = $("#login_submission_button");
+
+submission_button.click(function(){
+    submit_login();
+});
+
+function submit_login(){
+    console.log("Username:", email_input.val());
+    console.log("Password:", password_input.val());
+}
+
+</script>
+
+{% endblock %}

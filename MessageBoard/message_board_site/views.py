@@ -10,3 +10,6 @@ def get_test_view(request):
     template = 'test_view.html'
     return render(request, template, {})
 
+def get_login_view(request):
+    template = 'login.html'
+    return render(request, template, {})

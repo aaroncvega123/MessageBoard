@@ -20,4 +20,5 @@ from message_board_site import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'test_view', views.get_test_view),
+    url(r'login', views.get_login_view)
 ]
