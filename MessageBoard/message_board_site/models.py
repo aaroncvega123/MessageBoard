@@ -9,6 +9,7 @@ class User(models.Model):
     username = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password_hash = models.CharField(max_length=255)
+    auth_key = models.CharField(max_length=255, default=None)
 
 class MessageBoardPost(models.Model):
     content = models.CharField(max_length=1000)

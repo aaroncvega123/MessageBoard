@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'message_board_db',
-        'USER': 'aaronvega',
+        'USER': 'django_server',
         'HOST': 'localhost',
         'PORT': '5432',
     }
