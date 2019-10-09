@@ -29,8 +29,28 @@ submission_button.click(function(){
 });
 
 function submit_login(){
-    console.log("Username:", email_input.val());
-    console.log("Password:", password_input.val());
+    var email_address = email_input.val();
+    var password = password_input.val();
+
+    $.ajax({
+        type: "POST",
+        url: "/logingm",
+        data: JSON.stringify({
+            "email": email_address,
+            "password": password
+        }),
+        success: function(response){
+            if(response.auth_key){
+                alert(response.auth_key);                
+            }
+            else{
+                alert("Account not found");
+            }
+        },
+        error: function(){
+            alert("error!")
+        }
+    });
 }
 
 </script>

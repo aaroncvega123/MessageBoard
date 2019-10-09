@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='login_input_div'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+        </div>
+        <input id="create_email_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
+        </div>
+        <input id="create_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Confirm password:</span>
+            </div>
+        <input id="confirm_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <button id="create_account_button" type="button" class="btn btn-success">Create Account</button>
+    </div>
+</div>
+
+<script>
+
+var email_input = $("#create_email_input");
+var password_input = $("#create_password_input");
+var confirm_password_input = $("#confirm_password_input");
+var create_account_button = $("#create_account_button");
+
+create_account_button.click(function(){
+    if(password_input.val() == confirm_password_input.val()){
+        submit_info();        
+    }
+    else{
+        alert("Passwords do not match.");
+    }
+
+});
+
+function submit_info(){
+    var email_address = email_input.val();
+    var password = password_input.val();
+
+    $.ajax({
+        type: "POST",
+        url: "/create_account",
+        data: JSON.stringify({
+            "email": email_address,
+            "password": password
+        }),
+        success: function(response){
+            if(response.auth_key){
+                alert("Account created!");
+            }
+            else{
+                alert("Account already exists");
+            }
+        },
+        error: function(){
+            alert("error!")
+        }
+    });
+}
+
+</script>
+
+{% endblock %}
