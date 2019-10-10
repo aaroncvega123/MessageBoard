@@ -1,7 +1,7 @@
 var cookie_dict;
 
 function get_cookie_dict(){
-    var cookies = (document.cookie).split(';');
+    var cookies = (document.cookie.replace(' ', '')).split(';');
     var dict = {};
     cookies.forEach(function(cookie){
         cookie = cookie.split('=');
@@ -12,9 +12,16 @@ function get_cookie_dict(){
     cookie_dict = dict;
 }
 
-function init(){
-    get_cookie_dict();
-    console.log(cookie_dict);
+function set_nav_account_button(){
+    if (cookie_dict['auth_key']) {
+        var topnav = $('.topnav');
+        var profile_button = $("<a id='account_button' class='right'>");  
+        profile_button.text(cookie_dict['email']);
+        profile_button.appendTo(topnav);      
+    }
 }
 
-init();
+window.addEventListener("load", function(){
+    get_cookie_dict();
+    set_nav_account_button();
+});

@@ -38,7 +38,8 @@ def login(request):
         if user:
             response = {
                 'status': 'OK',
-                'auth_key': user.auth_key
+                'auth_key': user.auth_key,
+                'email': user.email
             }
         else:
             response = {
@@ -79,7 +80,8 @@ def create_account(request):
 
             response = {
                 'status': 'OK',
-                'auth_key': auth_key
+                'auth_key': auth_key,
+                'email': email_address
             }
 
         return JsonResponse(response)

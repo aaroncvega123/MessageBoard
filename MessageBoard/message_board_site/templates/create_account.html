@@ -51,7 +51,8 @@ function submit_info(){
         success: function(response){
             if(response.auth_key){
                 alert("Account created!");
-                document.cookie = "auth_key=" + response.auth_key;
+                document.cookie = "auth_key=" + response.auth_key + ";";
+                document.cookie = "email=" + response.email + ";";
             }
             else{
                 alert("Account already exists");

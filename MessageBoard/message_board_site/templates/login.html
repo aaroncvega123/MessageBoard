@@ -42,7 +42,8 @@ function submit_login(){
         success: function(response){
             if(response.auth_key){
                 alert(response.auth_key);
-                document.cookie = "auth_key=" + response.auth_key;
+                document.cookie = "auth_key=" + response.auth_key + ";";
+                document.cookie = "email=" + response.email + ";";
             }
             else{
                 alert("Account not found");
