@@ -15,6 +15,11 @@ def get_test_view(request):
     template = 'test_view.html'
     return render(request, template, {})
 
+def home(request):
+    template = 'home.html'
+    return render(request, template, {})
+    
+
 @csrf_exempt
 def login(request):
     template = 'login.html'

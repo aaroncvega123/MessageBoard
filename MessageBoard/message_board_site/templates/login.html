@@ -44,6 +44,7 @@ function submit_login(){
                 alert(response.auth_key);
                 document.cookie = "auth_key=" + response.auth_key + ";";
                 document.cookie = "email=" + response.email + ";";
+                window.location.replace("/home");
             }
             else{
                 alert("Account not found");
