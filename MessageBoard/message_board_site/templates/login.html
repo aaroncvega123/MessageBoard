@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/login.css' %}">
+
+<div class='login_input_div'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+        </div>
+        <input id="login_email_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
+        </div>
+        <input id="login_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <button id="login_submission_button" type="button" class="btn btn-success">Submit</button>
+    </div>
+</div>
+
+<script>
+
+var email_input = $("#login_email_input");
+var password_input = $("#login_password_input");
+var submission_button = $("#login_submission_button");
+
+submission_button.click(function(){
+    submit_login();
+});
+
+function submit_login(){
+    var email_address = email_input.val();
+    var password = password_input.val();
+
+    $.ajax({
+        type: "POST",
+        url: "/logingm",
+        data: JSON.stringify({
+            "email": email_address,
+            "password": password
+        }),
+        success: function(response){
+            if(response.auth_key){
+                alert(response.auth_key);
+                document.cookie = "auth_key=" + response.auth_key + ";";
+                document.cookie = "email=" + response.email + ";";
+                window.location.replace("/home");
+            }
+            else{
+                alert("Account not found");
+            }
+        },
+        error: function(){
+            alert("error!")
+        }
+    });
+}
+
+</script>
+
+{% endblock %}

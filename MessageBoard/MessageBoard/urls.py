@@ -20,4 +20,7 @@ from message_board_site import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'test_view', views.get_test_view),
+    url(r'home', views.home), 
+    url(r'login', views.login),
+    url(r'create_account', views.create_account)
 ]
