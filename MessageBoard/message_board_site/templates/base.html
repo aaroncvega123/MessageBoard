@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'scripts/util.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'style/header.css' %}">
 </head>
 
 <body>
     <header>
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
+            <a class="/login" href="#home">Home</a>
             <a href="/login">Login</a>
             <a href="/create_account">Sign up</a>
         </div>
