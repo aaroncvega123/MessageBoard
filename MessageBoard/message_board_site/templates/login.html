@@ -41,7 +41,7 @@ function submit_login(){
         }),
         success: function(response){
             if(response.auth_key){
-                alert(response.auth_key);
+                alert("You have logged in!");
                 document.cookie = "auth_key=" + response.auth_key + ";";
                 document.cookie = "email=" + response.email + ";";
                 window.location.replace("/home");

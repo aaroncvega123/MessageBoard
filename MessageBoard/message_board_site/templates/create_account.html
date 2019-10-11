@@ -53,6 +53,7 @@ function submit_info(){
                 alert("Account created!");
                 document.cookie = "auth_key=" + response.auth_key + ";";
                 document.cookie = "email=" + response.email + ";";
+                window.location.replace("/home");
             }
             else{
                 alert("Account already exists");
