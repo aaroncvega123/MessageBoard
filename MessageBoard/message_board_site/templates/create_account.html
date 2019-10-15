@@ -2,22 +2,21 @@
 
 {% block content %}
 
-<div class='login_input_div'>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
-        </div>
-        <input id="create_email_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
-        </div>
-        <input id="create_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Confirm password:</span>
-            </div>
-        <input id="confirm_password_input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        <button id="create_account_button" type="button" class="btn btn-success">Create Account</button>
+<div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="create_email_input" aria-describedby="emailHelp"
+            placeholder="Enter email">
     </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="create_password_input" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Confirm password</label>
+        <input type="password" class="form-control" id="confirm_password_input" placeholder="Password">
+    </div>
+    <button id='create_account_button' class="btn btn-primary">Submit</button>
 </div>
 
 <script>

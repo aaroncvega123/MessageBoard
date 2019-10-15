@@ -20,16 +20,26 @@ function log_out(){
 
 function set_nav_bar_buttons(){
     if (cookie_dict['auth_key']) {
-        var topnav = $('.topnav');
-        var profile_button = $("<a id='account_button' class='right'>");  
-        var log_out_button = $("<a id='log_out_button' class='right'>");
-        profile_button.text(cookie_dict['email']);
-        log_out_button.text('Log out');
+        var topnav = $('.navbar-nav');
+        var profile_button = $('<li class="nav-item">')
+            .append($("<a class='nav-link' class='right'>").text(cookie_dict['email']));
+        var log_out_button = $('<li class="nav-item">')
+            .append($("<a class='nav-link' class='right'>").text('Log out'));
+
         log_out_button.appendTo(topnav);
         profile_button.appendTo(topnav);  
         log_out_button.on('click', function(){
             log_out();
         });
+    }
+    else{
+        var topnav = $('.navbar-nav');
+        var login_button = $('<li class="nav-item">')
+            .append($("<a class='nav-link' class='right' href='/login'>").text('Login'));
+        var sign_up_button = $('<li class="nav-item">')
+            .append($("<a class='nav-link' class='right' href='/create_account'>").text('Sign up'));
+        login_button.appendTo(topnav);
+        sign_up_button.appendTo(topnav); 
     }
 }
 
