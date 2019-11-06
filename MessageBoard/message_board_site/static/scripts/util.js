@@ -1,13 +1,14 @@
 var cookie_dict;
 
 function get_cookie_dict(){
+    console.log(document.cookie);
     var cookies = (document.cookie.replace(' ', '')).split(';');
     var dict = {};
     cookies.forEach(function(cookie){
         cookie = cookie.split('=');
         var name = cookie[0];
         var data = cookie[1];
-        dict[name] = data;
+        dict[name.replace(' ', '')] = data;
     });
     cookie_dict = dict;
 }
@@ -15,14 +16,19 @@ function get_cookie_dict(){
 function log_out(){
     document.cookie = "auth_key=;";
     document.cookie = "email=;";
+    document.cookie = "user_id=;";
     location.reload();
 }
 
 function set_nav_bar_buttons(){
     if (cookie_dict['auth_key']) {
+        console.log(cookie_dict['user_id']);
         var topnav = $('.navbar-nav');
         var profile_button = $('<li class="nav-item">')
-            .append($("<a class='nav-link' class='right' href=''>").text(cookie_dict['email']));
+            .append($("<a class='nav-link' class='right'>")
+                .text(cookie_dict['email'])
+                .attr('href', 'profile/' + cookie_dict['user_id'])    
+            );
         var log_out_button = $('<li class="nav-item">')
             .append($("<a class='nav-link' class='right' href=''>").text('Log out'));
 

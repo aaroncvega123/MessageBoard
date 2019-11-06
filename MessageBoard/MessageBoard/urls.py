@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'test_view', views.get_test_view),
     url(r'home', views.home), 
     url(r'login', views.login),
-    url(r'create_account', views.create_account)
+    url(r'create_account', views.create_account),
+    url(r'profile/(?P<user_id>\w{0,50})/$', views.profile),
 ]

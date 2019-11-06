@@ -43,6 +43,8 @@
                     alert("You have logged in!");
                     document.cookie = "auth_key=" + response.auth_key + ";";
                     document.cookie = "email=" + response.email + ";";
+                    document.cookie = "user_id=" + response.user_id + ";";
+                    alert(response.user_id);
                     window.location.replace("/home");
                 }
                 else {

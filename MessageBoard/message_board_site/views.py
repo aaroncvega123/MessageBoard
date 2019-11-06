@@ -18,6 +18,10 @@ def get_test_view(request):
 def home(request):
     template = 'home.html'
     return render(request, template, {})
+
+def profile(request, user_id):
+    template = 'profile.html'
+    return render(request, template, {})
     
 
 @csrf_exempt
@@ -44,7 +48,8 @@ def login(request):
             response = {
                 'status': 'OK',
                 'auth_key': user.auth_key,
-                'email': user.email
+                'email': user.email,
+                'user_id': user.id
             }
         else:
             response = {
@@ -86,7 +91,8 @@ def create_account(request):
             response = {
                 'status': 'OK',
                 'auth_key': auth_key,
-                'email': email_address
+                'email': email_address,
+                'user_id': user.id
             }
 
         return JsonResponse(response)
